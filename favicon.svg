@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <style>
+    @keyframes glitch {
+      0%, 100% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+      }
+      20% {
+        transform: translate(-1px, 1px);
+        filter: hue-rotate(90deg);
+      }
+      40% {
+        transform: translate(-1px, -1px);
+        filter: hue-rotate(180deg);
+      }
+      60% {
+        transform: translate(1px, 1px);
+        filter: hue-rotate(270deg);
+      }
+      80% {
+        transform: translate(1px, -1px);
+        filter: hue-rotate(360deg);
+      }
+    }
+    
+    .glitch-text {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      font-weight: bold;
+      fill: #ff00ff;
+      animation: glitch 2s infinite;
+    }
+    
+    .glitch-layer {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      font-weight: bold;
+      fill: #ff00ff;
+      animation: glitch 2.5s infinite;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect width="32" height="32" fill="#1a103f"/>
+  
+  <!-- Glitch layers -->
+  <text x="4" y="20" class="glitch-layer">$ _</text>
+  <text x="4" y="20" class="glitch-layer">$ _</text>
+  
+  <!-- Main text -->
+  <text x="4" y="20" class="glitch-text">$ _</text>
+</svg> 
