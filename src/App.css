@@ -1,0 +1,255 @@
+@font-face {
+  font-family: 'Unifont';
+  src: url('/unifont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2d1b69 0%, #1a103f 50%, #0f0a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-address {
+  position: absolute;
+  font-family: 'Unifont', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff00ff;
+  pointer-events: none;
+  z-index: 1;
+  animation: memory-glitch 1s infinite, memory-fade 1s ease-in-out;
+  opacity: 0;
+}
+
+.memory-address::before,
+.memory-address::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Unifont', monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.memory-address::before {
+  animation: memory-glitch-1 1.2s infinite;
+  color: #00ffff;
+  z-index: -1;
+}
+
+.memory-address::after {
+  animation: memory-glitch-2 1.8s infinite;
+  color: #00ff00;
+  z-index: -2;
+}
+
+@keyframes memory-fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes memory-glitch {
+  0%, 100% {
+    text-shadow: 0 0 1px #ff00ff;
+    transform: translate(0);
+  }
+  25% {
+    text-shadow: 0 0 2px #ff00ff;
+    transform: translate(0.5px, 0);
+  }
+  50% {
+    text-shadow: 0 0 1px #ff00ff;
+    transform: translate(0);
+  }
+  75% {
+    text-shadow: 0 0 2px #ff00ff;
+    transform: translate(-0.5px, 0);
+  }
+}
+
+@keyframes memory-glitch-1 {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(1px, 0);
+    opacity: 0.6;
+  }
+}
+
+@keyframes memory-glitch-2 {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-1px, 0);
+    opacity: 0.5;
+  }
+}
+
+.ascii-art-container {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.ascii-art {
+  font-family: 'Unifont', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #00ffff;
+  margin: 0;
+  white-space: pre;
+  position: relative;
+  animation: neon-glitch 3s infinite;
+}
+
+.ascii-art::before,
+.ascii-art::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  white-space: pre;
+}
+
+.ascii-art::before {
+  animation: glitch-1 2s infinite;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+.ascii-art::after {
+  animation: glitch-2 2.5s infinite;
+  color: #00ff00;
+  z-index: -2;
+}
+
+.text-line {
+  font-family: 'Unifont', monospace;
+  font-size: 16px;
+  color: #ff00ff;
+  margin-top: 1rem;
+  text-align: left;
+  text-shadow: 0 0 2px #ff00ff;
+}
+
+@keyframes neon-glitch {
+  0%, 100% {
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff;
+  }
+  50% {
+    text-shadow: 
+      0 0 1px #00ffff,
+      0 0 3px #00ffff;
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ascii-art-container {
+    width: 90vw;
+    height: 300px;
+    padding: 1rem;
+  }
+  
+  .ascii-art {
+    font-size: 10px;
+  }
+  
+  .text-line {
+    font-size: 14px;
+  }
+  
+  .memory-address {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ascii-art-container {
+    width: 95vw;
+    height: 250px;
+  }
+  
+  .ascii-art {
+    font-size: 8px;
+  }
+  
+  .text-line {
+    font-size: 12px;
+  }
+  
+  .memory-address {
+    font-size: 10px;
+  }
+}
+
