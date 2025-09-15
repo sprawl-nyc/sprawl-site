@@ -1,4 +1,11 @@
 
+@font-face {
+  font-family: 'Unifont';
+  src: url('/unifont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .app {
   min-height: 100vh;
   background: linear-gradient(135deg, #2d1b69 0%, #1a103f 50%, #0f0a2e 100%);
@@ -21,7 +28,7 @@
 }
 
 .app.theme-purple {
-  background: linear-gradient(135deg, #3d1a4a 0%, #240f2d 50%, #140819 100%);
+  background: #f5f5f5;
 }
 
 .theme-switcher {
@@ -77,20 +84,27 @@
 }
 
 .theme-purple .theme-btn {
-  border-color: #bf00ff;
-  color: #bf00ff;
+  border-color: #666666;
+  color: #333333;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .theme-purple .theme-btn:hover {
-  box-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .theme-purple .theme-btn.active {
-  background: rgba(191, 0, 255, 0.2);
-  box-shadow: 0 0 15px rgba(191, 0, 255, 0.7);
+  background: #333333;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Theme-specific color adjustments */
+
+/* Green theme - uses Unifont */
+.theme-green * {
+  font-family: 'Unifont', monospace !important;
+}
 .theme-green .ascii-art,
 .theme-green .info-header,
 .theme-green .event-details,
@@ -139,56 +153,71 @@
   color: #80ff80;
 }
 
+/* Purple theme - Reader mode */
+.theme-purple * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+}
+
 .theme-purple .ascii-art,
 .theme-purple .info-header,
 .theme-purple .event-details,
 .theme-purple .toggle-icon,
-.theme-purple .talk-description {
-  color: #bf00ff;
-}
-
-.theme-purple .ascii-art::after {
-  color: #bf00ff;
-}
-
-.theme-purple .ascii-art::before {
-  color: #ff00ff;
-}
-
+.theme-purple .talk-description,
 .theme-purple .text-line,
+.theme-purple .talk-speaker {
+  color: #333333;
+}
+
+.theme-purple .ascii-art::after,
+.theme-purple .ascii-art::before {
+  display: none;
+}
+
 .theme-purple .event-details h2,
 .theme-purple .talk-title {
-  color: #ff00ff;
-}
-
-.theme-purple .talk-speaker {
-  color: #ff66ff;
+  color: #000000;
 }
 
 .theme-purple .memory-address {
-  color: #ff00ff;
-}
-
-.theme-purple .memory-address::before,
-.theme-purple .memory-address::after {
-  color: #bf00ff;
+  display: none;
 }
 
 .theme-purple .talk-box {
-  border-color: #bf00ff;
+  border-color: #666666;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .theme-purple .talk-box:hover {
-  box-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 1);
 }
 
 .theme-purple .event-details a {
-  color: #ff00ff;
+  color: #0066cc;
   text-decoration: underline;
 }
 
 .theme-purple .event-details a:hover {
-  color: #ff66ff;
+  color: #0052a3;
+}
+
+.theme-purple .ascii-art-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fancy-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 72px;
+  font-weight: 700;
+  font-style: italic;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 1rem 0 2rem 0;
+  letter-spacing: 2px;
+  text-transform: none;
 }
 
 .memory-address {
@@ -502,6 +531,10 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .fancy-title {
+    font-size: 56px;
+  }
+
   .ascii-art-container {
     width: 95vw;
     padding: 1rem;
@@ -539,6 +572,10 @@
 }
 
 @media (max-width: 480px) {
+  .fancy-title {
+    font-size: 42px;
+  }
+
   .ascii-art-container {
     width: 95vw;
     padding: 0.5rem;

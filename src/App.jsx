@@ -98,14 +98,14 @@ This talk will test the promise of privacy provided by these systems -- covering
         <button
           className={`theme-btn ${currentTheme === 'green' ? 'active' : ''}`}
           onClick={() => setCurrentTheme('green')}
-          aria-label="Green theme"
+          aria-label="Unifont green theme"
         >
           𓆣
         </button>
         <button
           className={`theme-btn ${currentTheme === 'purple' ? 'active' : ''}`}
           onClick={() => setCurrentTheme('purple')}
-          aria-label="Purple theme"
+          aria-label="Reader mode theme"
         >
           𓃠
         </button>
@@ -127,9 +127,13 @@ This talk will test the promise of privacy provided by these systems -- covering
       ))}
 
       <div className="ascii-art-container">
-        <pre className="ascii-art" data-text={asciiText}>
+        {currentTheme === 'purple' ? (
+          <h1 className="fancy-title">The Sprawl</h1>
+        ) : (
+          <pre className="ascii-art" data-text={asciiText}>
 {asciiText}
-        </pre>
+          </pre>
+        )}
         <div className="text-line">
           nyc - cybersecurity - 2025
         </div>
