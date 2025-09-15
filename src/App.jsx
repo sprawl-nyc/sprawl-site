@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [memoryAddresses, setMemoryAddresses] = useState([])
   const [expandedTalks, setExpandedTalks] = useState({})
+  const [currentTheme, setCurrentTheme] = useState('default')
 
   const generateHexAddress = () => {
     return '0x' + Math.random().toString(16).substring(2, 10).toUpperCase()
@@ -84,7 +85,32 @@ This talk will test the promise of privacy provided by these systems -- covering
   ]
 
   return (
-    <div className="app">
+    <div className={`app theme-${currentTheme}`}>
+      {/* Theme switcher buttons */}
+      <div className="theme-switcher">
+        <button
+          className={`theme-btn ${currentTheme === 'default' ? 'active' : ''}`}
+          onClick={() => setCurrentTheme('default')}
+          aria-label="Default theme"
+        >
+          𓁿
+        </button>
+        <button
+          className={`theme-btn ${currentTheme === 'green' ? 'active' : ''}`}
+          onClick={() => setCurrentTheme('green')}
+          aria-label="Green theme"
+        >
+          𓆣
+        </button>
+        <button
+          className={`theme-btn ${currentTheme === 'purple' ? 'active' : ''}`}
+          onClick={() => setCurrentTheme('purple')}
+          aria-label="Purple theme"
+        >
+          𓃠
+        </button>
+      </div>
+
       {/* Background memory addresses */}
       {memoryAddresses.map(address => (
         <div

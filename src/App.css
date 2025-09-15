@@ -15,6 +15,184 @@
   box-sizing: border-box;
   position: relative;
   overflow-x: hidden;
+  transition: background 0.5s ease;
+}
+
+.app.theme-default {
+  background: linear-gradient(135deg, #2d1b69 0%, #1a103f 50%, #0f0a2e 100%);
+}
+
+.app.theme-green {
+  background: linear-gradient(135deg, #0a2e1c 0%, #051a0f 50%, #020d06 100%);
+}
+
+.app.theme-purple {
+  background: linear-gradient(135deg, #3d1a4a 0%, #240f2d 50%, #140819 100%);
+}
+
+.theme-switcher {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.theme-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  font-family: 'Unifont', monospace;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0.6;
+}
+
+.theme-btn:hover {
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.theme-btn.active {
+  opacity: 1;
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+.theme-green .theme-btn {
+  border-color: #00ff00;
+  color: #00ff00;
+}
+
+.theme-green .theme-btn:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.theme-green .theme-btn.active {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+.theme-purple .theme-btn {
+  border-color: #bf00ff;
+  color: #bf00ff;
+}
+
+.theme-purple .theme-btn:hover {
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+}
+
+.theme-purple .theme-btn.active {
+  background: rgba(191, 0, 255, 0.2);
+  box-shadow: 0 0 15px rgba(191, 0, 255, 0.7);
+}
+
+/* Theme-specific color adjustments */
+.theme-green .ascii-art,
+.theme-green .info-header,
+.theme-green .event-details,
+.theme-green .toggle-icon,
+.theme-green .talk-description {
+  color: #00ff00;
+}
+
+.theme-green .ascii-art::after {
+  color: #00ff00;
+}
+
+.theme-green .text-line,
+.theme-green .event-details h2,
+.theme-green .talk-title {
+  color: #40ff40;
+}
+
+.theme-green .talk-speaker {
+  color: #80ff80;
+}
+
+.theme-green .memory-address {
+  color: #40ff40;
+}
+
+.theme-green .memory-address::before,
+.theme-green .memory-address::after {
+  color: #00ff00;
+}
+
+.theme-green .talk-box {
+  border-color: #00ff00;
+}
+
+.theme-green .talk-box:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.theme-green .event-details a {
+  color: #00ff00;
+}
+
+.theme-green .event-details a:hover {
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.theme-purple .ascii-art,
+.theme-purple .info-header,
+.theme-purple .event-details,
+.theme-purple .toggle-icon,
+.theme-purple .talk-description {
+  color: #bf00ff;
+}
+
+.theme-purple .ascii-art::after {
+  color: #bf00ff;
+}
+
+.theme-purple .ascii-art::before {
+  color: #ff00ff;
+}
+
+.theme-purple .text-line,
+.theme-purple .event-details h2,
+.theme-purple .talk-title {
+  color: #ff00ff;
+}
+
+.theme-purple .talk-speaker {
+  color: #ff66ff;
+}
+
+.theme-purple .memory-address {
+  color: #ff00ff;
+}
+
+.theme-purple .memory-address::before,
+.theme-purple .memory-address::after {
+  color: #bf00ff;
+}
+
+.theme-purple .talk-box {
+  border-color: #bf00ff;
+}
+
+.theme-purple .talk-box:hover {
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+}
+
+.theme-purple .event-details a {
+  color: #bf00ff;
+}
+
+.theme-purple .event-details a:hover {
+  text-shadow: 0 0 5px #bf00ff;
 }
 
 .memory-address {
