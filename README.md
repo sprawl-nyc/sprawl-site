@@ -11,6 +11,7 @@ Hosted every couple of months.
 ## Sprawl 0x1
 
 **Date: October 2nd, 2025**
+
 **Invite Link:** https://luma.com/zxlmzqg3 
 
 ### Talk 1: A Secret Talk about macOS Detection Engineering
