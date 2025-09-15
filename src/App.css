@@ -9,12 +9,12 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #2d1b69 0%, #1a103f 50%, #0f0a2e 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .memory-address {
@@ -50,7 +50,7 @@
 
 .memory-address::after {
   animation: memory-glitch-2 1.8s infinite;
-  color: #00ff00;
+  color: #00ffff;
   z-index: -2;
 }
 
@@ -108,17 +108,20 @@
 }
 
 .ascii-art-container {
-  background: rgba(0, 0, 0, 0.1);
+  background: transparent;
   padding: 2rem;
-  backdrop-filter: blur(10px);
-  width: 600px;
-  height: 400px;
+  width: 90%;
+  max-width: 900px;
+  min-height: 400px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   z-index: 10;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .ascii-art {
@@ -151,7 +154,7 @@
 
 .ascii-art::after {
   animation: glitch-2 2.5s infinite;
-  color: #00ff00;
+  color: #00ffff;
   z-index: -2;
 }
 
@@ -213,11 +216,123 @@
   }
 }
 
+/* New content styles */
+.sprawl-info {
+  width: 100%;
+  margin-top: 2rem;
+  font-family: 'Unifont', monospace;
+}
+
+.info-header {
+  margin-bottom: 2rem;
+  color: #00ffff;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  text-shadow: 0 0 2px #00ffff;
+}
+
+.info-header div {
+  margin-bottom: 0;
+}
+
+.event-details {
+  margin-bottom: 2rem;
+  color: #00ffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.event-details h2 {
+  font-size: 36px;
+  margin-bottom: 1rem;
+  color: #ff00ff;
+}
+
+.event-details a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.event-details a:hover {
+  text-shadow: 0 0 5px #00ffff;
+  text-decoration: underline;
+}
+
+.talks-container {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.talk-box {
+  border: 1px solid #00ffff;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.talk-box:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.talk-header {
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.toggle-icon {
+  color: #00ffff;
+  font-size: 14px;
+  min-width: fit-content;
+  user-select: none;
+  font-weight: bold;
+}
+
+.talk-info {
+  flex: 1;
+}
+
+.talk-title {
+  color: #ff00ff;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.talk-speaker {
+  color: #ff66ff;
+  font-size: 13px;
+}
+
+.talk-description {
+  padding: 0 1rem 1rem 3.5rem;
+  color: #00ffff;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .ascii-art-container {
-    width: 90vw;
-    height: 300px;
+    width: 95vw;
     padding: 1rem;
   }
   
@@ -232,24 +347,62 @@
   .memory-address {
     font-size: 12px;
   }
+
+  .info-header,
+  .event-details,
+  .talk-title {
+    font-size: 12px;
+  }
+
+  .talk-speaker,
+  .talk-description {
+    font-size: 11px;
+  }
+
+  .event-details h2 {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 480px) {
   .ascii-art-container {
     width: 95vw;
-    height: 250px;
+    padding: 0.5rem;
   }
-  
+
   .ascii-art {
     font-size: 8px;
   }
-  
+
   .text-line {
     font-size: 12px;
   }
-  
+
   .memory-address {
     font-size: 10px;
+  }
+
+  .info-header,
+  .event-details,
+  .talk-title {
+    font-size: 11px;
+  }
+
+  .talk-speaker,
+  .talk-description {
+    font-size: 10px;
+  }
+
+  .event-details h2 {
+    font-size: 22px;
+  }
+
+  .talk-header {
+    padding: 0.5rem;
+  }
+
+  .talk-description {
+    padding: 0 0.5rem 0.5rem 2.5rem;
   }
 }
 
