@@ -165,7 +165,11 @@ This talk will test the promise of privacy provided by these systems -- covering
                 </div>
                 {expandedTalks[talk.id] && (
                   <div className="talk-description">
-                    {talk.description}
+                    {talk.description.split('\n\n').map((paragraph, index) => (
+                      <p key={index} style={{ marginBottom: '1em' }}>
+                        {paragraph}
+                      </p>
+                    ))}
                   </div>
                 )}
               </div>
